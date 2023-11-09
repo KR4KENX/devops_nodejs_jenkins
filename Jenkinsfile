@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker { image 'node:latest' }
+    docker { image 'nodejs-web' }
   }
   stages {
     stage('Checkout code') {
