@@ -10,7 +10,7 @@ pipeline {
       }
     }
     stage('Setup enviroment'){
-
+      sh 'echo hello'
     }
 
   }
