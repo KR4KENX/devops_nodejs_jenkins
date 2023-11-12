@@ -9,5 +9,9 @@ pipeline {
         sh 'npm install package-lock.json'
       }
     }
+    stage('Test'){
+      steps{
+        sh 'npm test'
+      }
   }
 }
