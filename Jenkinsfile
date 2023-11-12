@@ -10,13 +10,14 @@ pipeline {
       }
     }
     stage('Test'){
-      steps{
+      steps {
         sh 'npm test'
       }
-  }
+    }
     stage('Build project'){
-      steps{
+      steps {
         sh 'npm start'
       }  
+    }
   }
-  }
+}
