@@ -17,6 +17,7 @@ pipeline {
     stage('Build project'){
       steps {
         sh 'npm start'
+        sh '^C'
       }  
     }
   }
