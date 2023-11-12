@@ -1,19 +1,12 @@
 pipeline {
   agent {
-    docker { image 'node:21' }
+    label 'peppermint-vm'
   }
   stages {
-    stage('Checkout code') {
+    stage('Setup enviroment') {
       steps {
-        git(url: 'https://github.com/KR4KENX/js_web_app', credentialsId:'github-pass', branch: 'main')
-        sh 'ls -l'
+        sh 'node'
       }
     }
-    stage('Setup enviroment'){
-      steps{
-        sh 'echo hello'
-      }
-    }
-
   }
 }
