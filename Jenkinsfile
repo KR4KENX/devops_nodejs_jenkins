@@ -27,5 +27,15 @@ pipeline {
         sh 'echo $DOCKER_CREDS_PSW | docker login -u $DOCKER_CREDS_USR --password-stdin'
       }
     }
+    stage('Push'){
+      steps{
+        sh 'docker push adzik2048/my-node-app1'
+      }
     }
+    }
+  post {
+    always {
+      sh 'docker logout'
+    }
+  }
   }
