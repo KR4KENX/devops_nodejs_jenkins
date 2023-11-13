@@ -14,11 +14,9 @@ pipeline {
         sh 'npm test'
       }
     }
-    stage('Publish'){
+    stage('Build Docker image'){
       steps {
-         azureWebAppPublish azureCredentialsId: '62d71d51-6722-4cdc-9fce-58c9827a5fb8',
-                   resourceGroup: 'resource-group-1', appName: 'adrian-nodejs-app',
-                   filePath: '*.js', sourceDirectory: 'target', targetDirectory: 'webapps'
+         sh 'docker build -t js-web-app .'
          }
       }  
     }
