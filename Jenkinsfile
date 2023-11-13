@@ -19,8 +19,8 @@ pipeline {
     }
     stage('Build Docker image'){
       steps {
-         sh 'sudo docker build -t js-web-app .'
-        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          //sh 'sudo docker build -t js-web-app .'
+          dockerImage = docker.build("${registry}:${BUILD_NUMBER}")
          }
       }  
     }
