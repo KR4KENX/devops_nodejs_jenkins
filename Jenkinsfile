@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Build Docker image'){
       steps {
-          sh 'sudo docker build -t adzik2048/js-web-app .'
+          sh 'sudo docker build -t js-web-app .'
          }
       }
     stage('Login to Docker Hub'){
