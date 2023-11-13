@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    dockerImage = ''
+    DOCKER_CREDS = credentials('docker-hub')
   }
   agent {
     label 'peppermint-vm'
@@ -19,9 +19,13 @@ pipeline {
     }
     stage('Build Docker image'){
       steps {
-          //sh 'sudo docker build -t js-web-app .'
-        dockerImage = docker.build("${registry}:${BUILD_NUMBER}")
+          sh 'sudo docker build -t adzik2048/js-web-app .'
          }
-      }  
+      }
+    stage('Login to Docker Hub'){
+      steps{
+        sh 'docker login -u $DOCKER_CREDS_USR --password-stdin'
+      }
+    }
     }
   }
