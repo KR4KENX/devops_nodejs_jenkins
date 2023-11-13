@@ -2,6 +2,9 @@ pipeline {
   agent {
     label 'peppermint-vm'
   }
+  enviroment{
+    dockerImage = ''
+  }
   stages {
     stage('Setup enviroment') {
       steps {
@@ -16,7 +19,8 @@ pipeline {
     }
     stage('Build Docker image'){
       steps {
-         sh 'docker build -t js-web-app .'
+         sh 'sudo docker build -t js-web-app .'
+        dockerImage = docker.build registry + ":$BUILD_NUMBER"
          }
       }  
     }
