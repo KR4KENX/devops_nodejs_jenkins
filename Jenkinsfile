@@ -24,7 +24,7 @@ pipeline {
       }
     stage('Login to Docker Hub'){
       steps{
-        sh 'docker login -u $DOCKER_CREDS_USR --password-stdin'
+        sh 'echo $DOCKER_CREDS_PSW | docker login -u $DOCKER_CREDS_USR --password-stdin'
       }
     }
     }
