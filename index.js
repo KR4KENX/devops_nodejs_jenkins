@@ -4,7 +4,9 @@ var app = express();
 function func_test(name){
     return name
 }
-
+app.get("/", (req, res,next) => {
+   res.send('Hello') 
+});
 app.get("/url", (req, res, next) => {
     res.json(["Id", "Username", "Age"])
    });
